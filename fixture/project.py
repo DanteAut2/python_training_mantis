@@ -5,21 +5,21 @@ class ProjectHelper:
     def __init__(self, app):
         self.app = app
 
-    def adding_project(self):
+    def adding_project(self, very_new_project):
         wd = self.app.wd
         wd.find_element_by_xpath("//input[@value='Create New Project']").click()
         wd.find_element_by_name("name").click()
         wd.find_element_by_name("name").clear()
-        wd.find_element_by_name("name").send_keys("abyrvalg")
+        wd.find_element_by_name("name").send_keys(very_new_project)
         wd.find_element_by_css_selector("input.button").click()
 
     def open_all_projects(self):
         wd = self.app.wd
         wd.find_element_by_link_text("Manage Projects").click()
 
-    def deleting_project(self):
+    def deleting_project(self, project):
         wd = self.app.wd
-        wd.find_element_by_link_text("abyrvalg").click()
+        wd.find_element_by_xpath("//a[contains(text(),'" + project + "')]")
         wd.find_element_by_css_selector("form > input.button").click()
         wd.find_element_by_xpath("//input[@value='Delete Project']").click()
         wd.find_element_by_css_selector("input.button").click()

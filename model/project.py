@@ -13,8 +13,6 @@ class Project:
     def __eq__(self, other):
         return (self.id is None or other.id is None or self.id == other.id) and self.name == other.name
 
-    def id_or_max(self):
-        if self.id:
-            return int(self.id)
-        else:
-            return maxsize
+    def sorted_name(self):
+        if self.name:
+            return self.name

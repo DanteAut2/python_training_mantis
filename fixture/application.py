@@ -1,6 +1,7 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.project import ProjectHelper
+from generator.generator import GeneratorHelper
 
 class Application:
     def __init__(self, browser, base_url):
@@ -16,6 +17,7 @@ class Application:
         self.session = SessionHelper(self)
         self.base_url = base_url
         self.project = ProjectHelper(self)
+        self.generator = GeneratorHelper(self)
 
     def is_valid(self):
         try:
