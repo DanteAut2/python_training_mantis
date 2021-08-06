@@ -3,6 +3,8 @@ from fixture.session import SessionHelper
 from fixture.project import ProjectHelper
 from generator.generator import GeneratorHelper
 from fixture.james import JamesHelper
+from fixture.mail import MailHelper
+from fixture.signup import SignupHelper
 
 class Application:
     def __init__(self, browser, config):
@@ -21,6 +23,8 @@ class Application:
         self.project = ProjectHelper(self)
         self.generator = GeneratorHelper(self)
         self.james = JamesHelper(self)
+        self.signup = SignupHelper(self)
+        self.mail = MailHelper(self)
 
     def is_valid(self):
         try:
