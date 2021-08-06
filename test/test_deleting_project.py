@@ -8,7 +8,7 @@ def test_deleting_project(app):
     app.project.manage_click()
     app.project.open_all_projects()
     if len(app.project.list_of_projects()) == 0:
-        app.project.adding_project(very_new_project)
+        app.project.adding_project(very_new_project.name)
     time.sleep(3)
     old_projects = app.project.list_of_projects()
     project = random.choice(old_projects)

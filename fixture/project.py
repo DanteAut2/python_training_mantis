@@ -19,8 +19,7 @@ class ProjectHelper:
 
     def deleting_project(self, project):
         wd = self.app.wd
-        wd.find_element_by_xpath("//a[contains(text(),'" + project + "')]")
-        wd.find_element_by_css_selector("form > input.button").click()
+        wd.find_element_by_xpath("//a[contains(text(),'" + project + "')]").click()
         wd.find_element_by_xpath("//input[@value='Delete Project']").click()
         wd.find_element_by_css_selector("input.button").click()
 
