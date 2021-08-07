@@ -20,8 +20,9 @@ def app(request, config):
     global fixture
     global target
     browser = request.config.getoption("--browser")
+    web_config = load_config(request.config.getoption("--target"))['web']
     if fixture is None or not fixture.is_valid():
-        fixture = Application(browser=browser, config=config)
+        fixture = Application(browser=browser, config=config, baseUrl=web_config['baseUrl'])
     return fixture
 
 @pytest.fixture(scope="session", autouse=True)
